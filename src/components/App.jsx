@@ -35,6 +35,7 @@ export default function App() {
         for (let i = 0; i < 12; i++) {
             const object = {name: `${data[i].name}`,
                             imageSrc: imageUrl[i],
+                            imageAlt : `A photo of ${data[i].name}`,
                             cardId: i + 1,
                             isClicked: false};
             tempArray.push(object);

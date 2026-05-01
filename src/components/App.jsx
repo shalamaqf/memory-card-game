@@ -43,13 +43,31 @@ export default function App() {
         return tempArray;
     }
 
+    function shuffleArr(arr) {
+        let shuffled = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            let num = Math.floor(Math.random() * arr.length) + 1;
+            let cardObj = arr.find(obj => obj.cardId === num);
+
+            while (shuffled.includes(cardObj)) {
+                num = Math.floor(Math.random() * arr.length) + 1;
+                cardObj = arr.find(obj => obj.cardId === num);
+            }
+
+            shuffled.push(cardObj);
+        }
+
+        return shuffled;
+    }
+
     // Set space objects
     useEffect( () => {
         async function handleSpaceObjects() {
             const arr = await createSpaceObjects();
 
             if (isMounted.current) {
-                setSpaceObjects(arr);
+                setSpaceObjects(shuffleArr(arr));
             }
         }
 
@@ -73,6 +91,8 @@ export default function App() {
             setBestScore(newScore);
         }
         }
+
+        setSpaceObjects(prev => shuffleArr(prev));
     }
 
     return (

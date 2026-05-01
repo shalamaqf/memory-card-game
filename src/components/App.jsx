@@ -5,6 +5,9 @@ import data from '../data/spaceObjectsData.js';
 export default function App() {
     const [currentScore, setCurrentScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
+    const [spaceObjects, setSpaceObjects] = useState([]);
+
+    let isMounted = useRef(true);
 
     // Fetching data images
     async function fetchData() {
@@ -39,6 +42,22 @@ export default function App() {
 
         return tempArray;
     }
+
+    // Set space objects
+    useEffect( () => {
+        async function handleSpaceObjects() {
+            const arr = await createSpaceObjects();
+
+            if (isMounted.current) {
+                setSpaceObjects(arr);
+            }
+        }
+
+
+        handleSpaceObjects();
+
+        return (() => isMounted.current = false);
+    }, []);
 
     function handleClick(isClicked) {
         let newScore;

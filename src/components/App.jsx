@@ -24,6 +24,22 @@ export default function App() {
         return imageUrl;
     }
 
+    // Space objects creation
+    async function createSpaceObjects() {
+        let imageUrl = await fetchData();
+        let tempArray = [];
+
+        for (let i = 0; i < 12; i++) {
+            const object = {name: `${data[i].name}`,
+                            imageSrc: imageUrl[i],
+                            cardId: i + 1,
+                            isClicked: false};
+            tempArray.push(object);
+        }
+
+        return tempArray;
+    }
+
     function handleClick(isClicked) {
         let newScore;
 

@@ -13,18 +13,24 @@ export default function App() {
 
     // Fetching data images
     async function fetchData() {
-        const fetchPromises = data.map(item => fetch(`https://images-api.nasa.gov/asset/${item.nasaId}`));
-        const responses = await Promise.all(fetchPromises);
-        const jsonArray = await Promise.all(responses.map(res => res.json()));
-        const imageUrl = jsonArray.map(item => {
-            if (item.collection.items[0]) {
-                return item.collection.items[0].href;
-            } else {
-                return 'https://via.placeholder.com/200?text=No+Image';
-            }
-        });
+        try {
+            const fetchPromises = data.map(item => fetch(`https://images-api.nasa.gov/asset/${item.nasaId}`));
+            const responses = await Promise.all(fetchPromises);
+            const jsonArray = await Promise.all(responses.map(res => res.json()));
+            const imageUrl = jsonArray.map(item => {
+                if (item.collection.items[0]) {
+                    return item.collection.items[0].href;
+                } else {
+                    return 'https://via.placeholder.com/200?text=No+Image';
+                }
+            });
 
-        return imageUrl;
+            return imageUrl;
+        } catch {
+            console.log('Fetch is failed.')
+            return data.map(() => 'https://via.placeholder.com/200?text=No+Image');
+
+        }
     }
 
     // Space objects creation
@@ -68,7 +74,6 @@ export default function App() {
     useEffect( () => {
         async function handleSpaceObjects() {
             const arr = await createSpaceObjects();
-
             if (isMounted.current) {
                 setSpaceObjects(shuffleArr(arr));
             }

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import './App.css'
+import '../styles/App.css'
 import data from '../data/spaceObjectsData.js';
+import Header from './Header.jsx';
+import CardGrid from './CardGrid.jsx';
 
 export default function App() {
     const [currentScore, setCurrentScore] = useState(0);
@@ -59,6 +61,8 @@ export default function App() {
             shuffled.push(cardObj);
         }
 
+        console.log(shuffled)
+
         return shuffled;
     }
 
@@ -98,7 +102,8 @@ export default function App() {
 
     return (
         <>
-        
+            <Header currentScore={currentScore} bestScore={bestScore} />
+            <CardGrid handleClick={handleClick} spaceObjects={spaceObjects} />
         </>
     )
 }

@@ -1,9 +1,9 @@
 import Card from "./Card"
 
-export default function CardGrid({handleClick, SpaceObjects}) {
+export default function CardGrid({handleClick, spaceObjects}) {
     return (
         <main className="card-grid">
-            {SpaceObjects.map(item => {
+            {spaceObjects.map(item => {
                 return <Card 
                             src={item.imageSrc} 
                             alt={item.imageAlt} 

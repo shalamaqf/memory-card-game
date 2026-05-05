@@ -79,7 +79,7 @@ export default function App() {
             }
         }
 
-
+        isMounted.current = true;
         handleSpaceObjects();
 
         return (() => isMounted.current = false);

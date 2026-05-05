@@ -13,17 +13,15 @@ export default function App() {
 
     // Fetching data images
     async function fetchData() {
-        const fetchPromises = data.map(item => fetch(`https://images-api.nasa.gov/search?q=${item.nasaId}`));
+        const fetchPromises = data.map(item => fetch(`https://images-api.nasa.gov/asset/${item.nasaId}`));
         const responses = await Promise.all(fetchPromises);
         const jsonArray = await Promise.all(responses.map(res => res.json()));
         const imageUrl = jsonArray.map(item => {
             if (item.collection.items[0]) {
-                if (item.collection.items[0].links[0]) {
-                    return item.collection.items[0].links[0].href;
-                }
+                return item.collection.items[0].href;
+            } else {
+                return 'https://via.placeholder.com/200?text=No+Image';
             }
-
-            return 'https://via.placeholder.com/200?text=No+Image';
         });
 
         return imageUrl;

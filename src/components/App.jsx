@@ -82,22 +82,31 @@ export default function App() {
         return (() => isMounted.current = false);
     }, []);
 
-    function handleClick(isClicked) {
+    function handleClick(obj) {
+        let resetArray;
+        let updatedArray;
         let newScore;
 
-        if (isClicked) {
-        setCurrentScore(0);
+        if (obj.isClicked) {
+            setCurrentScore(0);
+            resetArray = spaceObjects.map(item => ({...item, isClicked: false}))
+            setSpaceObjects(shuffleArr(resetArray));
         return;
         } else {
-        newScore = currentScore + 1;
-        setCurrentScore(newScore);
+            setCurrentScore(prev => {
+                newScore = prev + 1;
 
-        if (newScore > bestScore) {
-            setBestScore(newScore);
-        }
-        }
+                updatedArray = spaceObjects.map(item => 
+                    item.cardId === obj.cardId ? {...item, isClicked: true} : item
+                );
 
-        setSpaceObjects(prev => shuffleArr(prev));
+                return newScore;
+            });
+
+            setBestScore(prevBest => newScore > prevBest? newScore : prevBest);
+
+            setSpaceObjects(shuffleArr(updatedArray));
+        }
     }
 
     return (

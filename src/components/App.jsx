@@ -87,7 +87,7 @@ export default function App() {
         return (() => isMounted.current = false);
     }, []);
 
-    function handleWin() {
+    function handleWinMessage() {
         setGameMessage('You guessed all card! Mission accomplished 🚀 .')
     }
 

@@ -91,6 +91,14 @@ export default function App() {
         setGameMessage(`You guessed all card! Mission accomplished 🚀 . New game will starts in ${count} ...`)
     }
 
+    function resetGame() {
+        setCurrentScore(0);
+
+        const newArray = spaceObjects.map(item => ({...item, isClicked: false}));
+
+        setSpaceObjects(shuffleArr(newArray));
+    }
+
     function handleClick(id) {
         let newScore;
         let newArray;

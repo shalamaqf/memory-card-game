@@ -88,7 +88,7 @@ export default function App() {
     }, []);
 
     function handleWinMessage() {
-        setGameMessage('You guessed all card! Mission accomplished 🚀 .')
+        setGameMessage(`You guessed all card! Mission accomplished 🚀 . New game will starts in ${count} ...`)
     }
 
     function handleClick(id) {

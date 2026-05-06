@@ -8,6 +8,7 @@ export default function App() {
     const [currentScore, setCurrentScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
     const [spaceObjects, setSpaceObjects] = useState([]);
+    const [gameMessage, setGameMessage] = useState("Get points by clicking on an image but don't click on any more than once!");
 
     let isMounted = useRef(true);
 
@@ -84,6 +85,10 @@ export default function App() {
 
         return (() => isMounted.current = false);
     }, []);
+
+    function handleWin() {
+        setGameMessage('You guessed all card! Mission accomplished 🚀 .')
+    }
 
     function handleClick(id) {
         let newScore;

@@ -1,6 +1,6 @@
-export default function Card({src, alt, spaceObjectName, handleClick, cardData}) {
+export default function Card({src, alt, spaceObjectName, handleClick, cardId}) {
     return (
-        <div className="card" onClick={() => handleClick(cardData)}>
+        <div className="card" onClick={() => handleClick(cardId)}>
             <div className="image-container">
                 <img src={src} alt={alt} />
             </div>

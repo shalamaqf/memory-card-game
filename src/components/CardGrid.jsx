@@ -9,7 +9,7 @@ export default function CardGrid({handleClick, spaceObjects}) {
                             alt={item.imageAlt} 
                             spaceObjectName={item.name}
                             handleClick={handleClick}
-                            cardData={item}
+                            cardId={item.cardId}
                             key={item.cardId} 
                         />
             })}

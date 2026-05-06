@@ -9,6 +9,7 @@ export default function App() {
     const [bestScore, setBestScore] = useState(0);
     const [spaceObjects, setSpaceObjects] = useState([]);
     const [gameMessage, setGameMessage] = useState("Get points by clicking on an image but don't click on any more than once!");
+    const [count, setCount] = useState(5);
 
     let isMounted = useRef(true);
 

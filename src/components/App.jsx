@@ -11,6 +11,7 @@ export default function App() {
     const [gameMessage, setGameMessage] = useState("Get points by clicking on an image but don't click on any more than once!");
     const [count, setCount] = useState(5);
 
+    let winActive = useRef(false);
     let isMounted = useRef(true);
 
     // Fetching data images
@@ -125,6 +126,8 @@ export default function App() {
             })
         }
     }
+
+
 
     return (
         <>

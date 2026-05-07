@@ -132,6 +132,28 @@ export default function App() {
         }
     }
 
+    
+    useEffect(() => {
+        
+        if (currentScore === 12 && !winActive.current) {
+            winActive.current = true;
+            intervalRef.current = setInterval(() => {
+                setCount(prev => {
+                    if (prev === 1) {
+                        resetGame();
+                    }
+
+                    return prev - 1;
+                });
+            }, 1000)
+        }
+
+        return () => {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+    }, currentScore)
+
 
 
     return (

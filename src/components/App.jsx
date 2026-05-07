@@ -9,7 +9,7 @@ export default function App() {
     const [bestScore, setBestScore] = useState(0);
     const [spaceObjects, setSpaceObjects] = useState([]);
     const [gameMessage, setGameMessage] = useState("Get points by clicking on an image but don't click on any more than once!");
-    const [count, setCount] = useState(5);
+    const [count, setCount] = useState(10);
 
     let winActive = useRef(false);
     let isMounted = useRef(true);
@@ -136,6 +136,7 @@ export default function App() {
     useEffect(() => {
         
         if (currentScore === 12 && !winActive.current) {
+            handleWinMessage();
             winActive.current = true;
             intervalRef.current = setInterval(() => {
                 setCount(prev => {
@@ -152,13 +153,18 @@ export default function App() {
             clearInterval(intervalRef.current);
             intervalRef.current = null;
         }
-    }, currentScore)
+    }, [currentScore])
+
+
+    useEffect(() => {
+        if (winActive.current) handleWinMessage();
+    }, [count])
 
 
 
     return (
         <>
-            <Header currentScore={currentScore} bestScore={bestScore} />
+            <Header currentScore={currentScore} bestScore={bestScore} gameMessage={gameMessage}/>
             <CardGrid handleClick={handleClick} spaceObjects={spaceObjects} />
         </>
     )

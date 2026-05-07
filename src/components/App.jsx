@@ -95,7 +95,7 @@ export default function App() {
 
     function resetGame() {
         setCurrentScore(0);
-        setCount(5);
+        setCount(10);
         winActive.current = false;
         clearInterval(intervalRef.current);
         intervalRef.current = null;

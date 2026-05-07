@@ -99,6 +99,7 @@ export default function App() {
         winActive.current = false;
         clearInterval(intervalRef.current);
         intervalRef.current = null;
+        setGameMessage("Get points by clicking on an image but don't click on any more than once!")
 
         const newArray = spaceObjects.map(item => ({...item, isClicked: false}));
 
@@ -125,6 +126,11 @@ export default function App() {
                 )
 
                 setBestScore(prev => newScore > prev ? newScore : prev);
+
+                if (newScore === 12) {
+                    return newScore;
+                }
+
                 setSpaceObjects(shuffleArr(updatedArray))
 
                 return newScore;

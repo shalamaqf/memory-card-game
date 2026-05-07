@@ -13,6 +13,7 @@ export default function App() {
 
     let winActive = useRef(false);
     let isMounted = useRef(true);
+    let intervalRef = useRef(null);
 
     // Fetching data images
     async function fetchData() {

@@ -95,6 +95,10 @@ export default function App() {
 
     function resetGame() {
         setCurrentScore(0);
+        setCount(5);
+        winActive.current = false;
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
 
         const newArray = spaceObjects.map(item => ({...item, isClicked: false}));
 

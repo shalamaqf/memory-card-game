@@ -107,7 +107,7 @@ export default function App() {
     }
 
     function handleClick(id) {
-        // Prevent user to click cards if game is in win condition
+        // Prevent user to click if game is in win condition
         if (winActive.current) return;
 
         let newScore;

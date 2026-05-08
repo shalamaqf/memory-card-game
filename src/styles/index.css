@@ -73,6 +73,10 @@ h1 {
   font-size: 1.3rem;
 }
 
+.game-guide-text {
+  font-weight: bold;
+}
+
 
 /* Style */
 body {

@@ -35,7 +35,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 2rem;
-  padding: 0 1rem;
+  padding: 1rem;
   padding-bottom: 0.5rem;
 }
 

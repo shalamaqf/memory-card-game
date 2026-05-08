@@ -94,3 +94,10 @@ h1,
 .score-board-container p {
   font-family: "Space Grotesk", sans-serif;
 }
+
+.card {
+  background-color: #1a1a2e;
+  border: 3px solid #3a6ea5;
+  border-radius: 10px;
+  cursor: pointer;
+}

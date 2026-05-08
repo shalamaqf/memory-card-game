@@ -82,10 +82,10 @@ h1 {
   font-size: 1.3rem;
 }
 
-.game-guide-text {
+.game-guide-text,
+footer {
   font-weight: bold;
 }
-
 
 /* Style */
 body {
@@ -109,7 +109,8 @@ h1,
 }
 
 .game-guide-text, 
-.score-board-container p {
+.score-board-container p,
+footer p {
   font-family: "Space Grotesk", sans-serif;
 }
 

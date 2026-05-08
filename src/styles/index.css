@@ -23,12 +23,13 @@ header {
   align-items: center;
   min-height: 6rem;
   padding: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .header-left-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.7rem;
 }
 
 .card-grid {
@@ -104,4 +105,10 @@ h1,
   border: 3px solid #3a6ea5;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.card:hover {
+  background-color: #2a2a2e;
+  border: 3px solid #f59e0b;
+  border-radius: 10px;
 }

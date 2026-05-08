@@ -76,3 +76,21 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+h1, p {
+  color: #e0e0e0;
+}
+
+.score-board-container p {
+  font-weight: bold;
+}
+
+h1, 
+.name-container p {
+  font-family: "Orbitron", sans-serif;
+}
+
+.game-guide-text, 
+.score-board-container p {
+  font-family: "Space Grotesk", sans-serif;
+}

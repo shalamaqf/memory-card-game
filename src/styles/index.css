@@ -68,6 +68,10 @@ h1 {
   font-weight: bold;
 }
 
+.score-board-container p {
+  font-size: 1.3rem;
+}
+
 
 /* Style */
 body {

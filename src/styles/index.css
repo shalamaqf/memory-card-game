@@ -67,3 +67,12 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+
+/* Style */
+body {
+  background-image: url(../assets/background-space.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

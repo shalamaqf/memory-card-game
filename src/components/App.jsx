@@ -3,6 +3,7 @@ import '../styles/App.css'
 import data from '../data/spaceObjectsData.js';
 import Header from './Header.jsx';
 import CardGrid from './CardGrid.jsx';
+import Footer from './footer.jsx';
 
 export default function App() {
     const [currentScore, setCurrentScore] = useState(0);
@@ -175,6 +176,7 @@ export default function App() {
         <>
             <Header currentScore={currentScore} bestScore={bestScore} gameMessage={gameMessage}/>
             <CardGrid handleClick={handleClick} spaceObjects={spaceObjects} />
+            <Footer />
         </>
     )
 }
